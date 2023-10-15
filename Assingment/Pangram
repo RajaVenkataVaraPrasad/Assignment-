@@ -1,0 +1,33 @@
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class pangram {
+	boolean ispangram(String sentence) {
+		Set<Character> alphbeSet=new HashSet();
+		for(int i='a';i<='z';i++) {
+			alphbeSet.add((char)i);
+		}
+		for(int i=0;i<sentence.length();i++) {
+			alphbeSet.remove(sentence.charAt(i));
+			if(alphbeSet.isEmpty())
+				return true;
+		}
+		return false;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		pangram p=new pangram();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter your Sentence:");
+		String sentence=sc.nextLine();
+		
+		System.out.println(p.ispangram(sentence));
+		
+		
+
+	}
+
+}
